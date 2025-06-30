@@ -28,6 +28,7 @@ export const ContactForm = () => {
                 
             </div>
             
+            <button className="btn btn-primary w-100">Save</button>
             
         </div>
     )
