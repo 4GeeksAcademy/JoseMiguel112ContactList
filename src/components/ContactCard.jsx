@@ -5,23 +5,22 @@ export const ContactCard = () => {
 
 
     return (
-        <div className="Card container-fluid d-flex">
+        <div className="Card container-fluid d-flex w-75 me-3 border">
             <div>
-                <img src={rigoImageUrl} />
+                <img className="rounded-circle" src={rigoImageUrl} />
             </div>
             <div>
-                <ul class="list-group border-0">
-                    <li class="list-group-item border-0">Cras justo odio</li>
-                    <li class="list-group-item border-0">Dapibus ac facilisis in</li>
-                    <li class="list-group-item border-0">Vestibulum at eros</li>
-                    <li class="list-group-item border-0">Vestibulum at eros</li>
+                <ul className="list-group border-0">
+                    <li className="list-group-item border-0">Cras justo odio</li>
+                    <li className="list-group-item border-0">Dapibus ac facilisis in</li>
+                    <li className="list-group-item border-0">Vestibulum at eros</li>
+                    <li className="list-group-item border-0">Vestibulum at eros</li>
                 </ul>
             </div>
-            
-                <p>
+            <div className="d-flex justify-content-end w-100 ">
 
-                    <i className="bi bi-pencil"></i>
-                    </p>
+                <i className="fa-solid fa-pen"></i>
+            </div>
             
         </div>
     )

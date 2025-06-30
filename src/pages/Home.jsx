@@ -10,10 +10,10 @@ export const Home = () => {
 	const { store, dispatch } = useGlobalReducer()
 
 	return (
-		<div className="text-center m-5 p-3">
+		<div className="text-center m-5 py-3">
 			<div className="d-flex justify-content-end">
 
-			<Link to="/demo">
+			<Link to="/addcontact">
 				<button className="btn btn-success">Add Contact</button>
 			</Link>
 			</div>
