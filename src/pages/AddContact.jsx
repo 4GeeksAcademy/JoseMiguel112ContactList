@@ -15,8 +15,8 @@ export const AddContact = () => {
                 <ContactForm />
 <div className="container w-75">
 
-                <Link to="/home">
-                    <p className="text">or get back to contacts</p>
+                <Link to="/">
+                    <p className="">or get back to contacts</p>
                 </Link>
 </div>
             </div>

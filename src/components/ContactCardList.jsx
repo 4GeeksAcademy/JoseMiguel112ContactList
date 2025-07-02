@@ -1,7 +1,7 @@
 import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 
 
-export const ContactCard = () => {
+export const ContactCardList = (contact) => {
 
 
     return (
@@ -11,16 +11,16 @@ export const ContactCard = () => {
             </div>
             <div className="w-75 text-start">
                 <ul className="list-group border-0">
-                    <li className="list-group-item border-0">Cras justo odio</li>
-                    <li className="list-group-item border-0">Dapibus ac facilisis in</li>
-                    <li className="list-group-item border-0">Vestibulum at eros</li>
-                    <li className="list-group-item border-0">Vestibulum at eros</li>
+                    <li className="list-group-item border-0">{contact.name}</li>
+                    <li className="list-group-item border-0">{contact.phone}</li>
+                    <li className="list-group-item border-0">{contact.email}</li>
+                    <li className="list-group-item border-0">{contact.address}</li>
                 </ul>
             </div>
             <div className="d-flex justify-content-end w-auto px-2">
 
                 <i className="fa-solid fa-pen mx-2 pt-2"></i>
-                <i class="fa-solid fa-trash mx-2 pt-2"></i>
+                <i className="fa-solid fa-trash mx-2 pt-2"></i>
             </div>
 
         </div>
