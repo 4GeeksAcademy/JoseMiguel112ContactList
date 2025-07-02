@@ -1,20 +1,19 @@
 import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 
 
-export const ContactCardList = (contact) => {
+export const ContactCardList = (props) => {
+    
 
-
-    return (
-        <div className="Card container-fluid d-flex mx-3 px-3 border">
+    const contactos = props.contacts.map((item, index, _) => <div className="Card container-fluid d-flex mx-3 px-3 border" key={index}>
             <div className="w-25">
                 <img className="img-fluid rounded-circle min-vw-25" src={rigoImageUrl} />
             </div>
             <div className="w-75 text-start">
                 <ul className="list-group border-0">
-                    <li className="list-group-item border-0">{contact.name}</li>
-                    <li className="list-group-item border-0">{contact.phone}</li>
-                    <li className="list-group-item border-0">{contact.email}</li>
-                    <li className="list-group-item border-0">{contact.address}</li>
+                    <li className="list-group-item border-0">{item.name}</li>
+                    <li className="list-group-item border-0">{item.phone}</li>
+                    <li className="list-group-item border-0">{item.email}</li>
+                    <li className="list-group-item border-0">{item.address}</li>
                 </ul>
             </div>
             <div className="d-flex justify-content-end w-auto px-2">
@@ -23,6 +22,13 @@ export const ContactCardList = (contact) => {
                 <i className="fa-solid fa-trash mx-2 pt-2"></i>
             </div>
 
-        </div>
+        </div>)
+
+    return (
+        
+        <>
+        {contactos}
+        </>
+
     )
 }

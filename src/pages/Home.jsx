@@ -9,9 +9,10 @@ export const Home = () => {
 
 	const { store, dispatch } = useGlobalReducer()
 
-	const [contacts, setContacts] = useState(null)
+	const [contacts, setContacts] = useState([])
 
 	useEffect(() => {
+		
 		
 		getContacts()
 		
@@ -20,13 +21,19 @@ export const Home = () => {
 	function getContacts() {
 		fetch('https://playground.4geeks.com/contact/agendas/jmb/contacts', { method: "GET" })
 			.then((response) => {
+				
+				console.log(response);
+				
 				if (response.status === 402) {
 					createAgenda();
 				}
 				else return response.json()
 			})
-			.then((data) => setContacts(data))
-
+			.then((data) => {
+				setContacts(data.contacts)
+			console.log(data.contacts)
+			})
+			
 			.catch((error) => console.log(error))
 	}
 
@@ -42,37 +49,9 @@ export const Home = () => {
 				</Link>
 			</div>
 			<div className="">
+				<ContactCardList contacts={contacts}/>
 				
-				<ContactCard />
-				<ContactCard />
 			</div>
 		</div>
 	);
 };
-
-/*function createUser(){
-	fetch('https://playground.4geeks.com/todo/users/jmb', { method: "POST" })
-		.then((response) => {
-			if(response.status===201){
-				getTodos();
-			}
-			return response.json()
-		})
-		.then((data) => (data.todos))
-		
-		.catch((error) => console.log(error))
-
-
-		function getTodos() {
-	fetch('https://playground.4geeks.com/todo/users/jmb', { method: "GET" })
-		.then((response) => {
-			if(response.status === 404){
-				createUser();
-			}
-			else return response.json()
-		}) 
-		.then((data) => setListaTareas(data.todos))
-		
-		.catch((error) => console.log(error))
-}
-}*/
