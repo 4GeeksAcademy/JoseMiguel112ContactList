@@ -13,8 +13,8 @@ export const ContactForm = () => {
             method: "POST",
             body: JSON.stringify({
                 "name": name,
-                "phone": email,
-                "email": phone,
+                "phone": phone,
+                "email": email,
                 "address": address
             }),
             headers: {

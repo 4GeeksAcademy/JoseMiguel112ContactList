@@ -1,33 +1,57 @@
 import rigoImageUrl from "../assets/img/rigo-baby.jpg";
-
+import React, {useState} from "react";
 
 export const ContactCardList = (props) => {
+
     
 
+    function deleteContacts(id, index) {
+        fetch('https://playground.4geeks.com/contact/agendas/jmb/contacts/'+id, { method: "DELETE" })
+            .then((response) => {
+
+                console.log(response);
+
+                if (response.status === 204) {
+                    props.getContacts()
+                    
+                }
+                
+            })
+            .then((data) => {
+                
+                console.log(contactos.length)
+            })
+
+            .catch((error) => console.log(error))
+    }
+
+  
+
+
     const contactos = props.contacts.map((item, index, _) => <div className="Card container-fluid d-flex mx-3 px-3 border" key={index}>
-            <div className="w-25">
-                <img className="img-fluid rounded-circle min-vw-25" src={rigoImageUrl} />
-            </div>
-            <div className="w-75 text-start">
-                <ul className="list-group border-0">
-                    <li className="list-group-item border-0">{item.name}</li>
-                    <li className="list-group-item border-0">{item.phone}</li>
-                    <li className="list-group-item border-0">{item.email}</li>
-                    <li className="list-group-item border-0">{item.address}</li>
-                </ul>
-            </div>
-            <div className="d-flex justify-content-end w-auto px-2">
+        <div className="w-25">
+            <img className="img-fluid rounded-circle min-vw-25" src={rigoImageUrl} />
+        </div>
+        <div className="w-75 text-start">
+            <ul className="list-group border-0">
+                <li className="list-group-item border-0">{item.name}</li>
+                <li className="list-group-item border-0">{item.phone}</li>
+                <li className="list-group-item border-0">{item.email}</li>
+                <li className="list-group-item border-0">{item.address}</li>
+            </ul>
+        </div>
+        <div className="d-flex justify-content-end w-auto px-2">
 
-                <i className="fa-solid fa-pen mx-2 pt-2"></i>
-                <i className="fa-solid fa-trash mx-2 pt-2"></i>
-            </div>
+            <i className="fa-solid fa-pen mx-2 pt-2"></i>
+            <i className="fa-solid fa-trash mx-2 pt-2" onClick={() => deleteContacts(item.id, index)}></i>
+        </div>
 
-        </div>)
+    </div>)
 
     return (
-        
+
         <>
-        {contactos}
+            {contactos}
         </>
 
     )

@@ -49,7 +49,7 @@ export const Home = () => {
 				</Link>
 			</div>
 			<div className="">
-				<ContactCardList contacts={contacts}/>
+				<ContactCardList contacts={contacts} getContacts={getContacts}/>
 				
 			</div>
 		</div>
