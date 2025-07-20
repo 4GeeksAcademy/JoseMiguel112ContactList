@@ -18,13 +18,30 @@ export const Home = () => {
 		
 	}, [])
 
+	function createAgenda(){
+		    fetch('https://playground.4geeks.com/contact/agendas/jmb', {
+            method: "POST"})
+            .then((response) => {
+                
+                if (response.status === 201) {
+                    console.log(response);
+					getContacts();
+                }
+
+                return response.json()
+            })
+            .then((data) => console.log(data))
+            .catch((error) => console.log(error))
+    }
+	
+
 	function getContacts() {
 		fetch('https://playground.4geeks.com/contact/agendas/jmb/contacts', { method: "GET" })
 			.then((response) => {
 				
 				console.log(response);
 				
-				if (response.status === 402) {
+				if (response.status === 404) {
 					createAgenda();
 				}
 				else return response.json()
